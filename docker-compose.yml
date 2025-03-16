@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  oura_pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      # Mount the .dlt directory for secrets
+      - ./.dlt:/app/.dlt
+      # Mount the data directory to persist DuckDB files
+      - ./data:/app/data
+      # Mount the current directory to the container for real-time code editing
+      - .:/app
+    environment:
+      # Add any environment variables you might need
+      - PYTHONUNBUFFERED=1
+    # Keep the container running
+    tty: true
+    stdin_open: true
