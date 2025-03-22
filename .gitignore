@@ -8,3 +8,6 @@
 # ignore duckdb
 *.duckdb
 *.wal
+# ingnore sqlmesh artifacts
+./sqlmesh/.cache/
+./sqlmesh/logs/
