@@ -1,0 +1,16 @@
+[project]
+name = "oura_pipeline"
+version = "0.1.0"
+description = "Oura Ring data pipeline"
+requires-python = ">=3.11"
+dependencies = [
+    "dlt[duckdb]==1.8.1",
+    "sqlmesh==0.167.1",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["dlt", "sqlmesh"]

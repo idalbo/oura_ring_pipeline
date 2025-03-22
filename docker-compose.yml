@@ -6,12 +6,10 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      # Mount the .dlt directory for secrets
-      - ./.dlt:/app/.dlt
-      # Mount the data directory to persist DuckDB files
-      - ./data:/app/data
-      # Mount the current directory to the container for real-time code editing
-      - .:/app
+      - ./.dlt:/oura_pipeline/.dlt
+      - ./data:/oura_pipeline/data
+      - ./dlt:/oura_pipeline/dlt
+      - ./sqlmesh:/oura_pipeline/sqlmesh
     environment:
       # Add any environment variables you might need
       - PYTHONUNBUFFERED=1
