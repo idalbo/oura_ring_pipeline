@@ -9,5 +9,5 @@
 *.duckdb
 *.wal
 # ingnore sqlmesh artifacts
-./sqlmesh/.cache/
-./sqlmesh/logs/
+.cache/
+logs/
