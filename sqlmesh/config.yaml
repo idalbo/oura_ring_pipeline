@@ -1,0 +1,23 @@
+gateways:
+  duckdb:
+    connection:
+      # For more information on configuring the connection to your execution engine, visit:
+      # https://sqlmesh.readthedocs.io/en/stable/reference/configuration/#connections
+      # https://sqlmesh.readthedocs.io/en/stable/integrations/engines/duckdb/#connection-options
+      type: duckdb
+      database: /oura_pipeline/data/oura.duckdb
+      # concurrent_tasks: 10
+      # register_comments: True
+      # pre_ping: False
+      # pretty_sql: False
+      # catalogs: 
+      # extensions: 
+      # connector_config: 
+      # token: 
+
+
+default_gateway: duckdb
+
+model_defaults:
+  dialect: duckdb
+  start: 2025-03-21
