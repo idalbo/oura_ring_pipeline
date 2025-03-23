@@ -1,0 +1,15 @@
+# Oura API Pipeline Configuration
+oura_api_config:
+  client:
+    base_url: https://api.ouraring.com/v2/usercollection/
+
+  resources:
+    - name: sleep
+      enabled: true
+
+  resource_defaults:
+    primary_key: id
+    write_disposition: merge
+    endpoint:
+      params:
+        start_date: 2021-02-01

@@ -11,8 +11,9 @@ services:
       - ./dlt:/oura_pipeline/dlt
       - ./sqlmesh:/oura_pipeline/sqlmesh
     environment:
-      # Add any environment variables you might need
       - PYTHONUNBUFFERED=1
-    # Keep the container running
+    ports:
+      - "8000:8000"
+      - "8080:8080"
     tty: true
     stdin_open: true
