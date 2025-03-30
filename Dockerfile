@@ -28,8 +28,5 @@ COPY pyproject.toml .
 # Install just the dependencies without trying to install the package itself
 RUN uv pip install --system dlt[duckdb]==1.8.1 sqlmesh==0.167.1
 
-# Create .dlt directory for secrets if it doesn't exist
-RUN mkdir -p /oura_pipeline/.dlt
-
 # Use bash as the entrypoint
 ENTRYPOINT ["/bin/bash"]
