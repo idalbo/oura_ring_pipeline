@@ -19,3 +19,12 @@ docker-stop:  ## stops the running docker service
 
 docker-shell:  ## open a terminal session in the container
 	docker-compose -f docker-compose.yml run --rm oura_pipeline
+
+
+##############################
+#     		E2E run    	 	 #
+##############################
+project-run: ## runs project end-to-end
+	docker-compose -f docker-compose.yml run --rm oura_pipeline /bin/bash -c "\
+	python dlt/rest_api_pipeline.py && \
+	sqlmesh -p sqlmesh run"
