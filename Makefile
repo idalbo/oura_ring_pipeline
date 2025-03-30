@@ -18,7 +18,7 @@ docker-stop:  ## stops the running docker service
 	docker-compose -f docker-compose.yml down -v
 
 docker-shell:  ## open a terminal session in the container
-	docker-compose -f docker-compose.yml run --rm oura_pipeline
+	docker-compose -f docker-compose.yml run --rm oura_pipeline /bin/bash
 
 
 ##############################
