@@ -1,0 +1,2 @@
+dlt[duckdb]==1.8.1 
+sqlmesh==0.167.1
