@@ -2,6 +2,7 @@
 oura_api_config:
   client:
     base_url: https://api.ouraring.com/v2/usercollection/
+    paginator: single_page
 
   resources:
     - name: sleep
