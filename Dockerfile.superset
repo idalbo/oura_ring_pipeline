@@ -1,0 +1,5 @@
+# Use the official Apache Superset image as the base
+FROM apache/superset:latest
+
+# Install duckdb-engine for DuckDB support
+RUN pip install --no-cache-dir duckdb-engine==0.17.0

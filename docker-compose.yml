@@ -15,3 +15,41 @@ services:
       - "8080:8080"
     tty: true
     stdin_open: true
+
+  superset:
+    build:
+      context: .
+      dockerfile: Dockerfile.superset
+    container_name: superset
+    environment:
+      SUPERSET_SECRET_KEY: "not_needed"
+      SUPERSET_DATABASE_URL: "postgresql+psycopg2://superset:superset@superset-db:5432/superset"
+    volumes:
+      - t:/var/lib/superset
+      - ./data:/app/oura_pipeline/data  # Use the same volume as oura_pipeline
+    ports:
+      - "8088:8088"
+    depends_on:
+      - superset-db
+    command:
+      [
+        "sh",
+        "-c",
+        "superset db upgrade && \
+        superset fab create-admin --username admin --password admin --firstname Admin --lastname User --email admin@example.com && \
+        superset init && \
+        superset set-database-uri --database-name duckdb --uri duckdb:///oura_pipeline/data/oura.duckdb && \
+        superset run -h 0.0.0.0 -p 8088"
+      ]
+
+  superset-db:
+    image: postgres:13
+    container_name: superset-db
+    environment:
+      POSTGRES_USER: superset
+      POSTGRES_PASSWORD: superset
+      POSTGRES_DB: superset
+    volumes:
+      - ./superset/.superset-db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
