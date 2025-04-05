@@ -17,3 +17,7 @@ This project is under development and will be updated from time to time to add m
 6. once you are done, exit the container and run `make docker-stop` to spin down the container
 
 The data you downloaded should be available within the `data` folder!
+
+## Apache superset
+
+Once the container is up, you can access your DuckDB data at localhost:8088 through [apache superset](https://superset.apache.org/). The local database should be correctly mounted to the container and superset should be able to access it. Feel free to create charts and dashboards that you can save and persit in your local machine.
