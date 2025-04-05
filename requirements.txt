@@ -1,2 +1,5 @@
-dlt[duckdb]==1.8.1 
-sqlmesh==0.167.1
+dlt[duckdb]==1.9.0
+sqlmesh==0.136.2 
+apache-superset==4.1.2
+markupsafe==3.0.2
+duckdb-engine==0.17.0
