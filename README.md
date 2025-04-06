@@ -20,4 +20,4 @@ The data you downloaded should be available within the `data` folder!
 
 ## Apache superset
 
-Once the container is up, you can access your DuckDB data at localhost:8088 through [apache superset](https://superset.apache.org/). The local database should be correctly mounted to the container and superset should be able to access it. Feel free to create charts and dashboards that can be persisted in your local superset db instance (if you run the project successfully, you should see a `test_chart` and `test_dashboard` being populated).
+Once the container is up, you can access your DuckDB data at `localhost:8088` through [apache superset](https://superset.apache.org/). The local database should be correctly mounted to the container and superset should be able to access it. Feel free to create charts and dashboards that can be persisted in your local superset db instance (if you run the project successfully, you should see a `test_chart` and `test_dashboard` being populated).
