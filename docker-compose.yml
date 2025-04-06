@@ -25,7 +25,7 @@ services:
       SUPERSET_SECRET_KEY: "not_needed"
       SUPERSET_DATABASE_URL: "postgresql+psycopg2://superset:superset@superset-db:5432/superset"
     volumes:
-      - t:/var/lib/superset
+      - ./superset:/var/lib/superset
       - ./data:/app/oura_pipeline/data  # Use the same volume as oura_pipeline
     ports:
       - "8088:8088"

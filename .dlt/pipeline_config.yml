@@ -10,7 +10,7 @@ oura_api_config:
     - name: daily_activity
       enabled: true
     - name: daily_cardiovascular_age
-      enabled: false
+      enabled: true
       primary_key: day
       endpoint:
         params:
@@ -24,7 +24,7 @@ oura_api_config:
     - name: daily_stress
       enabled: true
     - name: heartrate
-      enabled: false
+      enabled: true
       primary_key: timestamp
     - name: personal_info
       enabled: true

@@ -4,8 +4,8 @@ version = "0.1.0"
 description = "Oura Ring data pipeline"
 requires-python = ">=3.11"
 dependencies = [
-    "dlt[duckdb]==1.8.1",
-    "sqlmesh==0.167.1",
+    "dlt[duckdb]==1.9.0",
+    "sqlmesh==0.170.0",
     "sqlmesh[web]",
 ]
 

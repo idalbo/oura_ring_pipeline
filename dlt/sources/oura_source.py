@@ -27,12 +27,19 @@ def _set_config(oura_api_key: str, config: Dict[str, Any]) -> RESTAPIConfig:
     if not base_url:
         raise ValueError("Base URL is missing in the configuration.")
 
-    # Collect enabled resources
-    resources = [
-        resource["name"]
-        for resource in yaml_config.get("resources", [])
-        if resource.get("enabled", True)
-    ]
+    # Collect enabled resources with all parameters
+    resources = []
+    for resource in yaml_config.get("resources", []):
+        if resource.get("enabled", True):
+            resources.append({
+                "name": resource["name"],
+                "endpoint": resource.get("endpoint", {}),
+                "write_disposition": resource.get("write_disposition", "merge"),
+                "primary_key": resource.get("primary_key", "id"),
+                "include_from_parent": resource.get("include_from_parent", []),
+                "processing_steps": resource.get("processing_steps", []),
+                "selected": resource.get("selected", True),
+            })
 
     # Default parameters
     default_params = yaml_config.get("resource_defaults", {}).get("endpoint", {}).get("params", {})
