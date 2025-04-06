@@ -50,6 +50,19 @@ services:
       POSTGRES_PASSWORD: superset
       POSTGRES_DB: superset
     volumes:
-      - ./superset/.superset-db-data:/var/lib/postgresql/data
+      - superset-db-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    restart: unless-stopped
+
+  redis:
+    image: redis:7
+    container_name: superset_cache
+    restart: unless-stopped
+    volumes:
+      - redis:/data
+
+volumes:
+  superset-db-data:
+    driver: local
+  redis:
