@@ -1,2 +1,2 @@
-dlt[duckdb]==1.8.1 
-sqlmesh==0.167.1
+dlt[duckdb]==1.9.0
+sqlmesh==0.170.0

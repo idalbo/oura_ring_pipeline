@@ -7,6 +7,38 @@ oura_api_config:
   resources:
     - name: sleep
       enabled: true
+    - name: daily_activity
+      enabled: true
+    - name: daily_cardiovascular_age
+      enabled: true
+      primary_key: day
+      endpoint:
+        params:
+          start_date: 2024-02-01
+    - name: daily_readiness
+      enabled: true
+    - name: daily_sleep
+      enabled: true
+    - name: daily_resilience
+      enabled: true
+    - name: daily_stress
+      enabled: true
+    - name: heartrate
+      enabled: true
+      primary_key: timestamp
+    - name: personal_info
+      enabled: true
+    - name: session
+      enabled: true
+    - name: sleep_time
+      enabled: true
+    - name: workout
+      enabled: true
+    - name: vO2_max
+      enabled: true
+      endpoint:
+        params:
+          start_date: 2024-02-01
 
   resource_defaults:
     primary_key: id
