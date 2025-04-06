@@ -15,7 +15,7 @@ services:
       - "8080:8080"
     tty: true
     stdin_open: true
-
+    
   superset:
     build:
       context: .
@@ -24,8 +24,9 @@ services:
     environment:
       SUPERSET_SECRET_KEY: "not_needed"
       SUPERSET_DATABASE_URL: "postgresql+psycopg2://superset:superset@superset-db:5432/superset"
+      SUPERSET_HOME: "/app/superset_home"
     volumes:
-      - ./superset:/var/lib/superset
+      - ./superset_home:/app/superset_home  # Main superset configuration directory
       - ./data:/app/oura_pipeline/data  # Use the same volume as oura_pipeline
     ports:
       - "8088:8088"
@@ -41,7 +42,7 @@ services:
         superset set-database-uri --database-name duckdb --uri duckdb:///oura_pipeline/data/oura.duckdb && \
         superset run -h 0.0.0.0 -p 8088"
       ]
-
+      
   superset-db:
     image: postgres:13
     container_name: superset-db
@@ -54,14 +55,14 @@ services:
     ports:
       - "5432:5432"
     restart: unless-stopped
-
+    
   redis:
     image: redis:7
     container_name: superset_cache
     restart: unless-stopped
     volumes:
       - redis:/data
-
+      
 volumes:
   superset-db-data:
     driver: local

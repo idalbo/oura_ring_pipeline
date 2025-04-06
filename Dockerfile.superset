@@ -1,8 +1,6 @@
 # Use the official Apache Superset image as the base
 FROM apache/superset:latest
-
 USER root
-
 # Install system dependencies
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -12,20 +10,19 @@ RUN apt-get update && \
     ca-certificates \
     bash \
     && rm -rf /var/lib/apt/lists/*
-
+    
 # Download the latest installer
 ADD https://astral.sh/uv/install.sh /uv-installer.sh
-
 # Run the installer then remove it
 RUN sh /uv-installer.sh && rm /uv-installer.sh
-
 # Ensure the installed binary is on the `PATH`
 ENV PATH="/root/.local/bin/:$PATH"
 
+# Create the superset_home directory that we'll mount to
+RUN mkdir -p /app/superset_home && chown -R superset:superset /app/superset_home
+
 # Copy the requirements file
 COPY requirements.superset.txt .
-
 # Install just the dependencies without trying to install the package itself
 RUN uv pip install --system --no-cache-dir -r requirements.superset.txt
-
 USER superset
