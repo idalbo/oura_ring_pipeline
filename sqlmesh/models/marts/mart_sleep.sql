@@ -1,0 +1,48 @@
+MODEL (
+  name marts.mart_sleep,
+  kind VIEW
+);
+
+SELECT 
+    date_day,
+    id, 
+    average_breath,
+    average_heart_rate,
+    average_hrv,
+    awake_time / 60 / 60                            AS awake_time,
+    bedtime_end,
+    bedtime_start,
+    deep_sleep_duration / 60 / 60                   AS deep_sleep_duration,
+    efficiency,
+    heart_rate__interval,
+    heart_rate__timestamp,
+    hrv__interval,
+    hrv__timestamp,
+    latency,
+    light_sleep_duration / 60 / 60                  AS light_sleep_duration,
+    lowest_heart_rate,
+    movement_30_sec,
+    period,
+    readiness__contributors__body_temperature,
+    readiness__contributors__previous_day_activity,
+    readiness__contributors__previous_night,
+    readiness__contributors__recovery_index,
+    readiness__contributors__resting_heart_rate,
+    readiness__score,
+    readiness__temperature_deviation,
+    readiness_score_delta,
+    rem_sleep_duration / 60 / 60                    AS rem_sleep_duration,
+    restless_periods,
+    sleep_phase_5_min,
+    sleep_score_delta,
+    time_in_bed / 60 / 60                           AS time_in_bed,
+    total_sleep_duration / 60 / 60                  AS total_sleep_duration,
+    sleep_type,
+    "_dlt_load_id",
+    "_dlt_id",
+    readiness__contributors__activity_balance,
+    readiness__contributors__sleep_balance,
+    readiness__temperature_trend_deviation,
+    readiness__contributors__hrv_balance
+FROM 
+    stg_oura.stg_sleep
