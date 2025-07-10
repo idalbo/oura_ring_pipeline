@@ -21,6 +21,7 @@ This project is under development and will be updated from time to time to add m
 **more detailed commands**
 
 This path allows you to run each step separately and have more control
+
 3. run `make docker-build` to build the image if you haven't
 4. run `make docker-start` to spin up the container 
 5. run `make docker-shell` to enter the interactive shell of the container and issue commands from there
