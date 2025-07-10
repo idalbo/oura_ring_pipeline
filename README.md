@@ -8,15 +8,18 @@ This project is under development and will be updated from time to time to add m
 
 ## How to run 
 
-*before running*
+**before running**
+
 1. in your local `.dlt` folder add a `secrets.toml` file and add the variables indicated in the `secrets.toml.example` file
 2. go to the [oura dev website](https://cloud.ouraring.com/personal-access-tokens) and create a personal access token, copy it, and palce it in the `secrets.toml` file
 
-*simplified approach*
+**simplified approach**
+
 3. run `make project-run` to build the container, pull your oura data into a local duckdb instance, and run sqlmesh
 4. run `make docker-start` to spin up the container with superset
 
-*more detailed commands*
+**more detailed commands**
+
 This path allows you to run each step separately and have more control
 3. run `make docker-build` to build the image if you haven't
 4. run `make docker-start` to spin up the container 
